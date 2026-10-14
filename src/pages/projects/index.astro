@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout title="Projects · Himanshu Chaurasia">
+  <section class="container">
+    <div class="section-head">
+      <p class="eyebrow">Case Studies</p>
+      <h1>Projects</h1>
+      <p class="lede">
+        Deep dives into systems I've designed and shipped — the problem, the
+        architecture, and what it moved. Each one links to a full write-up.
+      </p>
+    </div>
+    {projects.length > 0 ? (
+      <div class="grid grid-2">
+        {projects.map((p) => (
+          <ProjectCard
+            href={`/projects/${p.slug}`}
+            title={p.data.title}
+            summary={p.data.summary}
+            company={p.data.company}
+            tags={p.data.tags}
+            metric={p.data.metrics[0]}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="card empty">
+        <h3>More case studies on the way</h3>
+        <p>I'm writing these up. Check back soon, or see what I'm building on <a href="https://github.com/hchaurasia1" target="_blank" rel="noopener">GitHub</a>.</p>
+      </div>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { max-width: 60ch; font-size: 1.1rem; }
+  .empty { padding: 2.5rem; text-align: center; }
+  .empty h3 { color: var(--text); margin-bottom: 0.5rem; }
+  .empty p { margin: 0; }
+</style>

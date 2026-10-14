@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SkillGroup from "../components/SkillGroup.astro";
+import { SITE } from "../data/site";
+import { SKILL_GROUPS, EXPERIENCE, EDUCATION } from "../data/content";
+---
+
+<BaseLayout title="About · Himanshu Chaurasia">
+  <section class="container about">
+    <div class="section-head">
+      <p class="eyebrow">About</p>
+      <h1>Himanshu Chaurasia</h1>
+      <p class="lede">
+        Senior Software Engineer with a track record of architecting, scaling and
+        delivering high-throughput distributed systems across logistics and
+        telecom. I like turning gnarly state-management and async-data problems
+        into resilient, highly available backends — and mentoring the teams that
+        own them.
+      </p>
+      <div class="about-cta">
+        <a href={SITE.resume} target="_blank" rel="noopener" class="btn btn-primary">Download Résumé</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-ghost">Email me</a>
+        <a href={SITE.github} target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        <a href={SITE.linkedin} target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="container">
+    <div class="section-head">
+      <p class="eyebrow">Career</p>
+      <h2>Experience</h2>
+    </div>
+    <ol class="timeline">
+      {EXPERIENCE.map((job) => (
+        <li class="card tl-item">
+          <div class="tl-head">
+            <div>
+              <h3 class="tl-role">{job.role}</h3>
+              <p class="tl-company">
+                <a href={job.url} target="_blank" rel="noopener">{job.company} ↗</a>
+              </p>
+            </div>
+            <div class="tl-meta">
+              <span>{job.period}</span>
+              <span class="dim">{job.location}</span>
+            </div>
+          </div>
+          <ul class="tl-points">
+            {job.points.map((p) => <li>{p}</li>)}
+          </ul>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Skills -->
+  <section class="container">
+    <div class="section-head">
+      <p class="eyebrow">Toolkit</p>
+      <h2>Skills</h2>
+    </div>
+    <div class="grid grid-2">
+      {SKILL_GROUPS.map((g) => <SkillGroup title={g.title} items={g.items} />)}
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="container">
+    <div class="section-head">
+      <p class="eyebrow">Education</p>
+      <h2>Education</h2>
+    </div>
+    <div class="card edu">
+      <div class="tl-head">
+        <div>
+          <h3 class="tl-role">{EDUCATION.degree}</h3>
+          <p class="tl-company">{EDUCATION.school}</p>
+        </div>
+        <div class="tl-meta"><span>{EDUCATION.period}</span></div>
+      </div>
+      <p class="dim edu-note">{EDUCATION.note}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about { padding-block: clamp(3rem, 8vw, 5rem) 2rem; }
+  .lede { max-width: 65ch; font-size: 1.15rem; }
+  .about-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+
+  .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+  .tl-item { padding: 1.5rem 1.75rem; }
+  .tl-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .tl-role { margin: 0; font-size: 1.15rem; color: var(--text); }
+  .tl-company { margin: 0.15rem 0 0; font-weight: 600; font-size: 0.95rem; }
+  .tl-company a { color: var(--accent); }
+  .tl-company a:hover { color: #c4b5fd; text-decoration: underline; text-underline-offset: 3px; }
+  .tl-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: right;
+    font-family: var(--font-mono);
+  }
+  .tl-points { margin: 0; padding-left: 1.1rem; color: var(--text-muted); }
+  .tl-points li { margin-bottom: 0.55rem; }
+
+  .edu { padding: 1.5rem 1.75rem; }
+  .edu-note { margin: 0; font-family: var(--font-mono); font-size: 0.85rem; }
+
+  @media (max-width: 560px) {
+    .tl-meta { align-items: flex-start; text-align: left; }
+  }
+</style>

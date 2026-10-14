@@ -1,0 +1,78 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  summary: string;
+  company?: string;
+  tags?: string[];
+  metric?: { label: string; value: string };
+}
+const { href, title, summary, company, tags = [], metric } = Astro.props;
+---
+
+<a href={href} class="card project-card">
+  <div class="pc-top">
+    {company && <span class="pc-company">{company}</span>}
+    {metric && (
+      <span class="pc-metric">
+        <strong>{metric.value}</strong> {metric.label}
+      </span>
+    )}
+  </div>
+  <h3 class="pc-title">{title}</h3>
+  <p class="pc-summary">{summary}</p>
+  <ul class="pc-tags">
+    {tags.slice(0, 4).map((t) => <li class="tag">{t}</li>)}
+  </ul>
+  <span class="pc-arrow" aria-hidden="true">Read case study →</span>
+</a>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    color: var(--text);
+    height: 100%;
+  }
+  .project-card:hover {
+    color: var(--text);
+    transform: translateY(-4px);
+    box-shadow: 0 18px 50px -16px rgba(124, 108, 240, 0.4);
+  }
+  .pc-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .pc-company {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .pc-metric {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .pc-metric strong { color: var(--accent); }
+  .pc-title { margin: 0 0 0.5rem; }
+  .pc-summary { flex: 1; margin-bottom: 1rem; font-size: 0.95rem; }
+  .pc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0 0 1.1rem;
+    padding: 0;
+  }
+  .pc-arrow {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+</style>

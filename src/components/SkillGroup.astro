@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  items: string[];
+}
+const { title, items } = Astro.props;
+---
+
+<div class="card skill-group">
+  <h3 class="sg-title">{title}</h3>
+  <ul class="sg-items">
+    {items.map((i) => <li class="tag">{i}</li>)}
+  </ul>
+</div>
+
+<style>
+  .skill-group { padding: 1.4rem; }
+  .sg-title {
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0 0 1rem;
+  }
+  .sg-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>
