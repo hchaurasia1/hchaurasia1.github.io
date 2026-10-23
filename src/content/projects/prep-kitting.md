@@ -7,11 +7,6 @@ order: 5
 featured: true
 tags: ["Inventory", "Domain Design", "Lot Tracking", "Prep", "System Design"]
 stack: ["Node.js", "TypeScript", "MySQL", "Redis", "AWS Lambda"]
-metrics:
-  - { label: "transforms", value: "Components → kit SKUs" }
-  - { label: "kit shelf life", value: "min of components" }
-  - { label: "domains bridged", value: "Inbound ↔ Outbound" }
-links: []
 ---
 
 ## Problem

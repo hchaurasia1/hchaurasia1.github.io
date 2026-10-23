@@ -7,11 +7,6 @@ order: 4
 featured: true
 tags: ["OpenSearch", "Change Data Capture", "Kinesis", "AWS Lambda", "Search"]
 stack: ["Node.js", "TypeScript", "MySQL", "OpenSearch", "Kinesis", "AWS Lambda", "SNS", "SQS"]
-metrics:
-  - { label: "search backend", value: "SQL → OpenSearch" }
-  - { label: "sync", value: "CDC, not dual-write" }
-  - { label: "rollout", value: "seller-by-seller" }
-links: []
 ---
 
 ## Problem

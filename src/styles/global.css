@@ -86,21 +86,16 @@ section { padding-block: clamp(3rem, 8vw, 6rem); }
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
 }
 
-/* glass card */
 .card {
-  background: var(--surface);
+  background: var(--surface-solid);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: var(--shadow);
-  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  transition: border-color 0.2s ease;
 }
 .card:hover {
   border-color: var(--border-strong);
@@ -121,14 +116,12 @@ section { padding-block: clamp(3rem, 8vw, 6rem); }
   white-space: nowrap;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  background: var(--accent);
   color: #0a0a16;
-  box-shadow: 0 8px 30px -8px var(--accent-glow);
 }
 .btn-primary:hover {
   color: #0a0a16;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px -8px var(--accent-glow);
+  background: #c4b5fd;
 }
 .btn-ghost {
   background: transparent;
@@ -151,13 +144,6 @@ section { padding-block: clamp(3rem, 8vw, 6rem); }
   background: var(--accent-soft);
   color: var(--accent);
   border: 1px solid var(--border);
-}
-
-.text-gradient {
-  background: linear-gradient(120deg, #e7ebf7 10%, var(--accent) 60%, #c4b5fd 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .section-head { margin-bottom: 2.5rem; }

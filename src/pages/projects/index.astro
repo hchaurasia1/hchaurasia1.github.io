@@ -11,12 +11,7 @@ const projects = (await getCollection("projects")).sort(
 <BaseLayout title="Projects · Himanshu Chaurasia">
   <section class="container">
     <div class="section-head">
-      <p class="eyebrow">Case Studies</p>
       <h1>Projects</h1>
-      <p class="lede">
-        Deep dives into systems I've designed and shipped — the problem, the
-        architecture, and what it moved. Each one links to a full write-up.
-      </p>
     </div>
     {projects.length > 0 ? (
       <div class="grid grid-2">
@@ -27,7 +22,6 @@ const projects = (await getCollection("projects")).sort(
             summary={p.data.summary}
             company={p.data.company}
             tags={p.data.tags}
-            metric={p.data.metrics[0]}
           />
         ))}
       </div>
@@ -41,7 +35,6 @@ const projects = (await getCollection("projects")).sort(
 </BaseLayout>
 
 <style>
-  .lede { max-width: 60ch; font-size: 1.1rem; }
   .empty { padding: 2.5rem; text-align: center; }
   .empty h3 { color: var(--text); margin-bottom: 0.5rem; }
   .empty p { margin: 0; }

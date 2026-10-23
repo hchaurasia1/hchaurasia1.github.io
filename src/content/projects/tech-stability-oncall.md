@@ -7,11 +7,6 @@ order: 3
 featured: true
 tags: ["Reliability", "Observability", "Automation", "Cost Optimization", "On-Call"]
 stack: ["Node.js", "TypeScript", "AWS", "Datadog", "CircleCI"]
-metrics:
-  - { label: "initiatives led", value: "Multiple" }
-  - { label: "on-call", value: "Team backbone" }
-  - { label: "AWS cost", value: "Reduced" }
-links: []
 ---
 
 ## Problem

@@ -2,68 +2,31 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import SkillGroup from "../components/SkillGroup.astro";
 import { SITE } from "../data/site";
-import { SKILL_GROUPS } from "../data/content";
 
 const projects = (await getCollection("projects"))
   .filter((p) => p.data.featured)
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 4);
-
-const stats = [
-  { value: "$15M", label: "ARR scaled at Flexport" },
-  { value: "1M+", label: "state updates synced" },
-  { value: "500K", label: "events processed / day" },
-  { value: "6.5 yrs", label: "building distributed systems" },
-];
 ---
 
 <BaseLayout>
-  <!-- Hero -->
   <section class="hero container">
-    <p class="eyebrow">{SITE.role} · {SITE.location}</p>
-    <h1>
-      Hi, I'm Himanshu —<br />
-      I build <span class="text-gradient">backends that scale</span>.
-    </h1>
-    <p class="hero-tagline">{SITE.tagline}</p>
+    <h1>{SITE.name}</h1>
+    <p class="hero-role">{SITE.role}</p>
+    <p class="hero-intro">
+      I work on distributed backend systems at Flexport — event-driven pipelines,
+      search infrastructure, warehouse integrations. Before that, telecom at Airtel.
+      6.5 years in. Based in Bangalore.
+    </p>
     <div class="hero-cta">
       <a href="/projects" class="btn btn-primary">View Projects</a>
-      <a href={SITE.resume} target="_blank" rel="noopener" class="btn btn-ghost">Download Résumé</a>
-      <a href={SITE.github} target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-      <a href={SITE.linkedin} target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
-    </div>
-    <ul class="stats">
-      {stats.map((s) => (
-        <li>
-          <span class="stat-value text-gradient">{s.value}</span>
-          <span class="stat-label">{s.label}</span>
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <!-- About blurb -->
-  <section class="container">
-    <div class="card about-blurb">
-      <p>
-        I'm a Senior Backend Engineer (SDE-3) at <strong>Flexport</strong>, where I turn
-        maintenance-mode products into revenue engines and design the event-driven
-        infrastructure underneath them. I've spent six and a half years architecting
-        high-throughput, fault-tolerant systems across logistics and telecom —
-        the kind that quietly move millions of state updates while staying highly
-        available. <a href="/about">More about me →</a>
-      </p>
+      <a href={SITE.resume} target="_blank" rel="noopener" class="btn btn-ghost">Résumé</a>
     </div>
   </section>
 
-  <!-- Featured projects -->
   <section class="container">
-    <div class="section-head">
-      <p class="eyebrow">Selected Work</p>
-      <h2>Featured projects</h2>
-    </div>
+    <h2>Projects</h2>
     <div class="grid grid-2">
       {projects.map((p) => (
         <ProjectCard
@@ -72,56 +35,34 @@ const stats = [
           summary={p.data.summary}
           company={p.data.company}
           tags={p.data.tags}
-          metric={p.data.metrics[0]}
         />
       ))}
     </div>
-    <p class="see-all"><a href="/projects">See all projects →</a></p>
-  </section>
-
-  <!-- Skills -->
-  <section class="container">
-    <div class="section-head">
-      <p class="eyebrow">Toolkit</p>
-      <h2>What I work with</h2>
-    </div>
-    <div class="grid grid-2">
-      {SKILL_GROUPS.map((g) => <SkillGroup title={g.title} items={g.items} />)}
-    </div>
+    <p class="see-all"><a href="/projects">All projects →</a></p>
   </section>
 </BaseLayout>
 
 <style>
   .hero { padding-block: clamp(3.5rem, 10vw, 7rem) clamp(2rem, 5vw, 3rem); }
-  .hero h1 { margin-bottom: 1.25rem; }
-  .hero-tagline {
-    max-width: 60ch;
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+  .hero h1 { margin-bottom: 0.25rem; }
+  .hero-role {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+  .hero-intro {
+    max-width: 55ch;
+    font-size: 1.05rem;
     color: var(--text-muted);
     margin-bottom: 2rem;
+    line-height: 1.7;
   }
   .hero-cta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-bottom: 3rem;
   }
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 1.75rem 0 0;
-    border-top: 1px solid var(--border);
-  }
-  .stats li { display: flex; flex-direction: column; gap: 0.2rem; }
-  .stat-value { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; }
-  .stat-label { font-size: 0.85rem; color: var(--text-dim); }
-
-  .about-blurb { padding: 1.75rem 2rem; }
-  .about-blurb p { margin: 0; font-size: 1.05rem; color: var(--text-muted); }
-  .about-blurb strong { color: var(--text); }
 
   .see-all { margin-top: 1.75rem; font-weight: 600; }
 </style>

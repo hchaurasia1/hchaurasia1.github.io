@@ -7,11 +7,6 @@ order: 1
 featured: true
 tags: ["Async Processing", "Reconciliation", "AWS Lambda", "Latency", "Warehouse Ops"]
 stack: ["Node.js", "TypeScript", "MySQL", "AWS Lambda", "SNS", "SQS", "CDC", "Datadog"]
-metrics:
-  - { label: "warehouse UPH", value: "~21 → ~32" }
-  - { label: "update API p95", value: "~7–8s → off critical path" }
-  - { label: "items inspected/day", value: "~10K" }
-links: []
 ---
 
 ## Problem
