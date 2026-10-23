@@ -7,11 +7,6 @@ order: 8
 featured: true
 tags: ["Event-Driven", "Automation", "Field Operations", "Scale"]
 stack: ["Java", "Spring Boot", "PostgreSQL", "Redis", "RabbitMQ", "Solace"]
-metrics:
-  - { label: "SRs/day", value: "~500K" }
-  - { label: "annual savings", value: "₹150 Cr (~$18M)" }
-  - { label: "wasted visits", value: "Eliminated" }
-links: []
 ---
 
 ## Problem

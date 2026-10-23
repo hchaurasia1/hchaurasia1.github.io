@@ -7,11 +7,6 @@ order: 6
 featured: true
 tags: ["Access Control", "RBAC", "Security", "tRPC", "System Design"]
 stack: ["TypeScript", "Node.js", "tRPC", "PostgreSQL", "React"]
-metrics:
-  - { label: "model", value: "Groups + permissions" }
-  - { label: "enforcement", value: "Route + record level" }
-  - { label: "security fix", value: "Privilege escalation closed" }
-links: []
 ---
 
 ## Problem

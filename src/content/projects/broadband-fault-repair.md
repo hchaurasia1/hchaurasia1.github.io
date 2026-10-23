@@ -7,11 +7,6 @@ order: 7
 featured: true
 tags: ["Workflow Engine", "Field Operations", "State Machine", "Pan-India Scale"]
 stack: ["Java", "Spring Boot", "PostgreSQL", "Redis", "RabbitMQ"]
-metrics:
-  - { label: "SRs/day at launch", value: "~100K" }
-  - { label: "coverage", value: "Pan-India" }
-  - { label: "scope", value: "End-to-end journey" }
-links: []
 ---
 
 ## Problem
