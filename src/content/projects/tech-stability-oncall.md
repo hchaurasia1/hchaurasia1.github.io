@@ -1,11 +1,8 @@
 ---
-title: "Tech Stability & On-Call Leadership"
+title: "Tech stability and on-call leadership"
 summary: "Led the reliability initiatives — faster deploys, better monitoring, fewer errors, lower AWS cost — and served as the backbone of on-call for the Returns and Prep domains."
 company: "Flexport"
-period: "2023 – Present"
 order: 3
-featured: true
-tags: ["Reliability", "Observability", "Automation", "Cost Optimization", "On-Call"]
 stack: ["Node.js", "TypeScript", "AWS", "Datadog", "CircleCI"]
 ---
 

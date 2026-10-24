@@ -1,11 +1,8 @@
 ---
-title: "Moving Returns Search Off the Database"
+title: "Moving returns search off the database"
 summary: "Listing and search ran straight against the primary database and couldn't do the partial-match, multi-field search the UI needed. I moved it to a search index kept in sync by change-data-capture."
 company: "Flexport"
-period: "2024"
 order: 4
-featured: true
-tags: ["OpenSearch", "Change Data Capture", "Kinesis", "AWS Lambda", "Search"]
 stack: ["Node.js", "TypeScript", "MySQL", "OpenSearch", "Kinesis", "AWS Lambda", "SNS", "SQS"]
 ---
 

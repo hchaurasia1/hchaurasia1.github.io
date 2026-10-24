@@ -2,36 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="404 · Page Not Found" description="This page doesn't exist.">
-  <section class="container notfound">
-    <p class="eyebrow">Error 404</p>
-    <h1>This page took a wrong turn.</h1>
-    <p class="nf-lede">
-      The page you're looking for doesn't exist or may have moved. Let's get you
-      back on track.
-    </p>
-    <div class="nf-cta">
-      <a href="/" class="btn btn-primary">Back to home</a>
-      <a href="/projects" class="btn btn-ghost">View projects</a>
-    </div>
-  </section>
+<BaseLayout title="Page not found, Himanshu Chaurasia" description="This page doesn't exist.">
+  <h1>Page not found</h1>
+  <p>
+    There's nothing at this address. Go back to the <a href="/">home page</a> or
+    see my <a href="/projects">projects</a>.
+  </p>
 </BaseLayout>
-
-<style>
-  .notfound {
-    padding-block: clamp(4rem, 14vw, 9rem);
-    text-align: center;
-  }
-  .nf-lede {
-    max-width: 48ch;
-    margin-inline: auto;
-    font-size: 1.1rem;
-  }
-  .nf-cta {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-</style>

@@ -1,11 +1,8 @@
 ---
-title: "Smart SR Journey"
+title: "Smart SR journey"
 summary: "Stopped Airtel from sending field engineers to individual homes for area-wide network outages — automatically generating and holding affected SRs, then re-checking each connection once the upstream fix landed."
 company: "Airtel Digital"
-period: "2021 – 2023"
 order: 8
-featured: true
-tags: ["Event-Driven", "Automation", "Field Operations", "Scale"]
 stack: ["Java", "Spring Boot", "PostgreSQL", "Redis", "RabbitMQ", "Solace"]
 ---
 

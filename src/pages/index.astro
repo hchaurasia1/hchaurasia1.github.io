@@ -1,68 +1,31 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import { SITE } from "../data/site";
-
-const projects = (await getCollection("projects"))
-  .filter((p) => p.data.featured)
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 4);
+import ProjectList from "../components/ProjectList.astro";
 ---
 
 <BaseLayout>
-  <section class="hero container">
-    <h1>{SITE.name}</h1>
-    <p class="hero-role">{SITE.role}</p>
-    <p class="hero-intro">
-      I work on distributed backend systems at Flexport — event-driven pipelines,
-      search infrastructure, warehouse integrations. Before that, telecom at Airtel.
-      6.5 years in. Based in Bangalore.
-    </p>
-    <div class="hero-cta">
-      <a href="/projects" class="btn btn-primary">View Projects</a>
-      <a href={SITE.resume} target="_blank" rel="noopener" class="btn btn-ghost">Résumé</a>
-    </div>
-  </section>
+  <p class="opening">
+    I'm <strong>Himanshu</strong>, a senior backend engineer with 6.5 years of
+    experience building distributed systems for logistics and telecom.
+  </p>
+  <p class="soft">
+    I'm currently an SDE-3 at Flexport in Bangalore, working on Returns and Prep.
+    Before that I was at Airtel, where I built the broadband fault repair system
+    used across India.
+  </p>
 
-  <section class="container">
-    <h2>Projects</h2>
-    <div class="grid grid-2">
-      {projects.map((p) => (
-        <ProjectCard
-          href={`/projects/${p.slug}`}
-          title={p.data.title}
-          summary={p.data.summary}
-          company={p.data.company}
-          tags={p.data.tags}
-        />
-      ))}
-    </div>
-    <p class="see-all"><a href="/projects">All projects →</a></p>
-  </section>
+  <h2>Projects</h2>
+  <ProjectList />
 </BaseLayout>
 
 <style>
-  .hero { padding-block: clamp(3.5rem, 10vw, 7rem) clamp(2rem, 5vw, 3rem); }
-  .hero h1 { margin-bottom: 0.25rem; }
-  .hero-role {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 1.25rem;
+  .opening {
+    font-size: 34px;
+    line-height: 1.35;
+    margin-bottom: 32px;
+    font-variation-settings: "opsz" 48;
   }
-  .hero-intro {
-    max-width: 55ch;
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    line-height: 1.7;
+  @media (max-width: 560px) {
+    .opening { font-size: 26px; }
   }
-  .hero-cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .see-all { margin-top: 1.75rem; font-weight: 600; }
 </style>
