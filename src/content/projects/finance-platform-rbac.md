@@ -1,11 +1,8 @@
 ---
-title: "Access Control for a Finance Platform"
+title: "Access control for a finance platform"
 summary: "Built the roles-and-permissions system for an in-house finance platform from scratch — including the row-level access rules and a fix for a privilege-escalation hole I found along the way."
 company: "Flexport"
-period: "2024 – 2025"
 order: 6
-featured: true
-tags: ["Access Control", "RBAC", "Security", "tRPC", "System Design"]
 stack: ["TypeScript", "Node.js", "tRPC", "PostgreSQL", "React"]
 ---
 

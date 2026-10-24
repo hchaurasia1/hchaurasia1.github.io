@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<ol class="dated">
+  {projects.map((p) => (
+    <li>
+      <span class="side">{p.data.company}</span>
+      <div>
+        <a href={`/projects/${p.slug}`}>{p.data.title}</a>
+        <p>{p.data.summary}</p>
+      </div>
+    </li>
+  ))}
+</ol>

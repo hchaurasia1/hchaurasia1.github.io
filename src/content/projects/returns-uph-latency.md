@@ -1,11 +1,8 @@
 ---
-title: "Taking the Warehouse Off the Critical Path"
+title: "Taking the warehouse off the critical path"
 summary: "Returns inspection was blocked on a slow, synchronous call to the warehouse system. I made those updates asynchronous and self-reconciling, which roughly doubled warehouse throughput."
 company: "Flexport"
-period: "2023 – Present"
 order: 1
-featured: true
-tags: ["Async Processing", "Reconciliation", "AWS Lambda", "Latency", "Warehouse Ops"]
 stack: ["Node.js", "TypeScript", "MySQL", "AWS Lambda", "SNS", "SQS", "CDC", "Datadog"]
 ---
 
