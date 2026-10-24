@@ -3,7 +3,7 @@ title: "Moving returns search off the database"
 summary: "Listing and search ran straight against the primary database and couldn't do the partial-match, multi-field search the UI needed. I moved it to a search index kept in sync by change-data-capture."
 company: "Flexport"
 order: 4
-stack: ["Node.js", "TypeScript", "MySQL", "OpenSearch", "Kinesis", "AWS Lambda", "SNS", "SQS"]
+stack: ["Node.js", "TypeScript", "MySQL", "Maxwell's Daemon", "OpenSearch", "Kinesis", "AWS Lambda", "SNS", "SQS"]
 ---
 
 ## Problem
@@ -20,7 +20,7 @@ on the same database serving writes.
 I moved search onto a dedicated OpenSearch index. The key decision was how to
 keep it in sync: writing to the index inside the database transaction would have
 added latency and failure modes to every write, so I used change-data-capture
-instead. Row changes are captured off the MySQL binlog (Maxwell), carried on a
+instead. Row changes are captured off the MySQL binlog by Maxwell's Daemon, carried on a
 Kinesis stream into a Lambda that filters for the records search cares about,
 then fanned out through SNS to an SQS queue where a second Lambda builds the
 OpenSearch document and writes it — fully decoupled from the write path.
