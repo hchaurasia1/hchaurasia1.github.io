@@ -1,6 +1,6 @@
 ---
 title: "Taking the warehouse off the critical path"
-summary: "Returns inspection was blocked on a slow, synchronous call to the warehouse system. I made those updates asynchronous and self-reconciling, which roughly doubled warehouse throughput."
+summary: "Returns inspection was blocked on a slow, synchronous call to the warehouse system. I made those updates asynchronous and self-reconciling, which more than doubled warehouse throughput."
 company: "Flexport"
 order: 1
 stack: ["Node.js", "TypeScript", "MySQL", "AWS Lambda", "SNS", "SQS", "CDC", "Datadog"]
@@ -36,5 +36,5 @@ license plate that travels with it.
 
 Operators no longer wait on the warehouse to finish an inspection — the update
 happens in the background and the system heals itself when the WMS is slow or
-flaky. Throughput rose from roughly 21 to 32 items per operator-hour, and a
+flaky. Throughput rose from 15 to 32 items per operator-hour, and a
 whole class of manual "systems out of sync" tickets went away.
