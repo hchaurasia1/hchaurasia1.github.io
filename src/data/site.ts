@@ -1,11 +1,9 @@
 export const SITE = {
   name: "Himanshu Chaurasia",
   role: "Senior Backend Engineer",
-  tagline:
-    "I architect and scale high-throughput distributed systems — event-driven backends that move millions of state updates without breaking a sweat.",
+  description:
+    "Himanshu Chaurasia, a senior backend engineer at Flexport working on warehouse returns. Previously fault repair at Airtel.",
   email: "himanshu.s.chaurasia.04@gmail.com",
-  phone: "+91 99322 58070",
-  location: "Bangalore, India",
   github: "https://github.com/hchaurasia1",
   linkedin: "https://www.linkedin.com/in/himanshushekharchaurasia",
   resume: "https://tinyurl.com/3vzczy25",

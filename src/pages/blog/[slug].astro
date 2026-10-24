@@ -1,0 +1,38 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((p) => ({
+    params: { slug: p.slug },
+    props: { post: p },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { Content } = await post.render();
+---
+
+<BaseLayout title={`${data.title}, Himanshu Chaurasia`} description={data.description}>
+  <article>
+    <h1>{data.title}</h1>
+    <p class="soft date">
+      <time datetime={data.pubDate.toISOString()}>
+        {data.pubDate.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+      </time>
+    </p>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .date { margin-top: -4px; margin-bottom: 36px; font-size: 17px; }
+</style>

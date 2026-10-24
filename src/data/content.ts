@@ -49,8 +49,8 @@ export const EXPERIENCE = [
     points: [
       "Transformed Returns from a KTLO product into a core revenue engine — scaling ARR 7.5× from $2M to $15M through new merchant capabilities and architectural investment.",
       "Architected an SQS event-driven layer decoupling Returns processing from the external WMS, eliminating a 10s synchronous bottleneck and lifting throughput (UPH) from 15 to 32.",
-      "Built a Kinesis-based CDC pipeline using the Outbox pattern, syncing 1M+ state updates into OpenSearch for highly available, low-latency search.",
-      "Architected AuthN/AuthZ, RBAC and Notifications for a new Finance platform — saving $500K in licensing — with graph traversal to resolve hierarchical approval limits.",
+      "Built a CDC pipeline that streams MySQL changes through Maxwell's Daemon into Kinesis, syncing 1M+ state updates into OpenSearch for highly available, low-latency search.",
+      "Architected AuthN/AuthZ, RBAC and notifications for a new finance platform that replaced a third-party procurement tool, saving $500K in licensing; used graph traversal to detect cycles in approval workflows and route purchase requests by hierarchical approval limits.",
       "Promoted from SDE-II to SDE-III within a year; sole senior engineer on a team scaled from 2 to 8, owning system design, architecture reviews, on-call, and mentorship.",
     ],
   },

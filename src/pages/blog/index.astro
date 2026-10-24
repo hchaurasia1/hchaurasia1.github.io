@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Writing, Himanshu Chaurasia">
+  <h1>Writing</h1>
+  {posts.length === 0 ? (
+    <p class="soft">No posts yet. The first one is on its way.</p>
+  ) : (
+    <ol class="dated">
+      {posts.map((post) => (
+        <li>
+          <time class="side" datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.getFullYear()}
+          </time>
+          <div>
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            <p>{post.data.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  )}
+</BaseLayout>

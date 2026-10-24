@@ -1,17 +1,9 @@
 ---
-title: "Kitting: Turning Components Into Sellable Units"
+title: "Kitting: turning components into sellable units"
 summary: "Built the kitting flow where a seller's component inventory is assembled into kit SKUs — the hard part was keeping inventory honest as components turn into kits across two domains."
 company: "Flexport"
-period: "2024"
 order: 5
-featured: true
-tags: ["Inventory", "Domain Design", "Lot Tracking", "Prep", "System Design"]
 stack: ["Node.js", "TypeScript", "MySQL", "Redis", "AWS Lambda"]
-metrics:
-  - { label: "transforms", value: "Components → kit SKUs" }
-  - { label: "kit shelf life", value: "min of components" }
-  - { label: "domains bridged", value: "Inbound ↔ Outbound" }
-links: []
 ---
 
 ## Problem

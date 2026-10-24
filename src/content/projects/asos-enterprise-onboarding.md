@@ -1,17 +1,9 @@
 ---
-title: "Onboarding an Enterprise Returns Merchant"
+title: "Onboarding an enterprise returns merchant"
 summary: "A large apparel merchant needed returns handled differently from everyone else — item-level inventory tracking and their own batched notification feed. I built the integration that made it work."
 company: "Flexport"
-period: "2024"
 order: 2
-featured: true
-tags: ["Integrations", "Batch Sync", "CDC Events", "Inventory", "Warehouse Ops"]
 stack: ["Node.js", "TypeScript", "MySQL", "AWS Lambda", "SNS", "SQS", "CDC"]
-metrics:
-  - { label: "notification cadence", value: "every 5 min" }
-  - { label: "query cost cut", value: "~200 → ~3" }
-  - { label: "item throughput", value: "~6–8K items/day" }
-links: []
 ---
 
 ## Problem

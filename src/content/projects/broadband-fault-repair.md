@@ -1,17 +1,9 @@
 ---
-title: "Broadband Fault Repair Workflow"
+title: "Broadband fault repair workflow"
 summary: "Built the end-to-end service-request journey for Airtel broadband faults — from creation through operator assignment, field visit, post-fix verification, and closure — and launched it pan-India."
 company: "Airtel Digital"
-period: "2021 – 2023"
 order: 7
-featured: true
-tags: ["Workflow Engine", "Field Operations", "State Machine", "Pan-India Scale"]
 stack: ["Java", "Spring Boot", "PostgreSQL", "Redis", "RabbitMQ"]
-metrics:
-  - { label: "SRs/day at launch", value: "~100K" }
-  - { label: "coverage", value: "Pan-India" }
-  - { label: "scope", value: "End-to-end journey" }
-links: []
 ---
 
 ## Problem

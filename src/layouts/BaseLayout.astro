@@ -1,5 +1,4 @@
 ---
-import Background from "../components/Background.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import { SITE } from "../data/site";
@@ -11,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = `${SITE.name} · ${SITE.role}`,
-  description = SITE.tagline,
+  title = `${SITE.name}, ${SITE.role}`,
+  description = SITE.description,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
@@ -28,26 +27,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <Background />
-    <Nav />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <div class="page">
+      <Nav />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>
